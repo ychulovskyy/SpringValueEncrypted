@@ -10,12 +10,6 @@ public class EncryptPropertyConfigurer extends PropertySourcesPlaceholderConfigu
     private final static String PREFIX = "ENC:";
 
     @Override
-    protected String convertPropertyValue(String value) {
-        return value.startsWith(PREFIX) ?
-                EncryptUtils.encrypt(value.substring(PREFIX.length())) : value;
-    }
-
-    @Override
     protected void loadProperties(Properties props) throws IOException {
         super.loadProperties(props);
         for (String propertyName : props.stringPropertyNames()) {
